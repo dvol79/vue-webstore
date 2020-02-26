@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import VueRouter from 'vue-router'
-import Main from '../component/Main.vue'
+import Main from '../components/Main.vue'
 import Form from '../components/Form.vue'
 
 Vue.use(VueRouter)
@@ -8,7 +8,7 @@ Vue.use(VueRouter)
 const routes = [
   {
     path: '/',
-    name: 'iMain',
+    name: 'Main',
     component: Main,
     props: true
   },
