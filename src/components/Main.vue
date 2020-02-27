@@ -2,7 +2,7 @@
   <div>
     <store-header :cartItemCount="cartItemCount"></store-header>
     <main>
-      <div v-for="product in sortedProducts">
+      <div v-for="product in sortedProducts" :key="product.id">
         <div class="row">
           <div class="col-md-5 col-md-offset-0">
             <figure>
@@ -31,7 +31,10 @@
             <span class="inventory-message" v-else>Buy now!</span>
 
             <div class="rating">
-              <span v-bind:class="{ 'rating-active': checkRating(n, product) }" v-for="n in 5">☆</span>
+              <span 
+                v-bind:class="{ 'rating-active': checkRating(n, product) }"
+                v-for="n in 5"
+                :key="n">☆</span>
             </div>
           </div>
         </div>
@@ -43,10 +46,10 @@
 <script>
 import StoreHeader from "./Header.vue";
 export default {
-  name: "Main",
+  name: 'Main',
   data() {
     return {
-      products: {},
+      products: [],
       cart: []
     };
   },
@@ -112,7 +115,7 @@ export default {
     }
   },
   created: function() {
-    axios.get('/static/products.json').then(response => {
+    axios.get('/products.json').then(response => {
       this.products = response.data.products;
       console.log(this.products);
     });

@@ -2,7 +2,7 @@
   <header>
     <div class="navbar navbar-default navbar-fixed-top">
       <div class="navbar-header">
-        <h2 class="navbar-brand" href="#">
+        <h2 class="navbar-brand">
           <router-link :to="{name: 'Main'}">{{ sitename.toUpperCase() }}</router-link>
         </h2>
       </div>

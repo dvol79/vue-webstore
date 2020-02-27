@@ -5,7 +5,7 @@
       "title": "Cofra AMG red",
       "description": "A 25 pound bag of <em>irresistible</em>, organic goodness for your cat.",
       "price": 2800,
-      "image": "assets/images/AMG_red_4.png",
+      "image": "images/AMG_red_4.png",
       "availableInventory": 10,
       "rating": 4
     },
@@ -14,7 +14,7 @@
       "title": "Nakidka on chair",
       "description": "Yarn your cat can play with for a very <strong>long</strong> time!",
       "price": 299,
-      "image": "assets/images/Nakidka_black_2.png",
+      "image": "images/Nakidka_black_2.png",
       "availableInventory": 7,
       "rating": 1
     },
@@ -23,7 +23,7 @@
       "title": "Sumka BMW",
       "description": "Premium kitty litter for your cat.",
       "price": 12100,
-      "image": "assets/images/BMW_black_1.png",
+      "image": "images/BMW_black_1.png",
       "availableInventory": 25,
       "rating": 4
     },
@@ -32,7 +32,7 @@
       "title": "Pillow WV",
       "description": "A place for your cat to play!",
       "price": 1799,
-      "image": "assets/images/WV_black_1.png",
+      "image": "images/WV_black_1.png",
       "availableInventory": 11,
       "rating": 5
     },
@@ -41,7 +41,7 @@
       "title": "Cofra LEXUS brown",
       "description": "Drive your cat crazy with this <em>amazing</em> product.",
       "price": 4999,
-      "image": "assets/images/LEXUS_brown_1.png",
+      "image": "images/LEXUS_brown_1.png",
       "availableInventory": 25,
       "rating": 1
     }
