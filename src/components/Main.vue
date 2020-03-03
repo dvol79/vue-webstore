@@ -52,11 +52,11 @@
 
 <script>
 import StoreHeader from "./Header.vue";
+import { mapGetters } from 'vuex';
 export default {
   name: "Main",
   data() {
     return {
-      products: [],
       cart: []
     };
   },
@@ -83,6 +83,12 @@ export default {
     }
   },
   computed: {
+    ...mapGetters([
+      'products'
+    ]),
+    // products() {
+    //   return this.$store.getters.products;
+    // },
     cartItemCount() {
       return this.cart.length || "";
     },
@@ -122,10 +128,7 @@ export default {
     }
   },
   created: function() {
-    axios.get("/products.json").then(response => {
-      this.products = response.data.products;
-      console.log(this.products);
-    });
+    this.$store.dispatch('initStore');
   }
 };
 </script>
