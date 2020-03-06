@@ -53,11 +53,14 @@
 <script>
 import StoreHeader from "./Header.vue";
 import { mapGetters } from 'vuex';
+import { productsRef } from '../firebase';
+
 export default {
   name: "Main",
   data() {
     return {
-      cart: []
+      cart: [],
+      products: [],
     };
   },
   components: { StoreHeader },
@@ -84,17 +87,14 @@ export default {
   },
   computed: {
     ...mapGetters([
-      'products'
+      // 'products',
+      'session'
     ]),
-    // products() {
-    //   return this.$store.getters.products;
-    // },
     cartItemCount() {
       return this.cart.length || "";
     },
     sortedProducts() {
       if (this.products.length > 0) {
-        let prodArr = this.products.slice(0);
         function compare(a, b) {
           if (a.title.toLowerCase() < b.title.toLowerCase()) {
             return -1;
@@ -104,7 +104,7 @@ export default {
           }
           return 0;
         }
-        return prodArr.sort(compare);
+        return this.products.sort(compare);
       }
     }
   },
@@ -127,8 +127,20 @@ export default {
       }
     }
   },
-  created: function() {
-    this.$store.dispatch('initStore');
+  created() {
+    productsRef.once("value", products => {
+      products.forEach(product => {
+        this.products.push({
+          id: product.child("id").val(),
+          title: product.child("title").val(),
+          description: product.child("description").val(),
+          price: product.child("price").val(),
+          image: product.child("image").val(),
+          availableInventory: product.child("availableInventory").val(),
+          rating: product.child("rating").val(),
+        });
+      })
+    })
   }
 };
 </script>
